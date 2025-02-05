@@ -33,10 +33,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, PropType } from "vue";
+import { defineComponent, ref } from "vue";
+// Import PropType using type-only import
+import type { PropType } from "vue";
 import KanbanCard from "./KanbanCard.vue";
 
-// Define the structure of the column prop.
+// Define types for card and column
 type Card = { id: number; title: string; description: string };
 type Column = { id: number; title: string; cards: Card[] };
 

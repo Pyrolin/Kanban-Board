@@ -17,12 +17,16 @@
 import { defineComponent, ref } from "vue";
 import KanbanColumn from "./KanbanColumn.vue";
 
+// Define types
+type Card = { id: number; title: string; description: string };
+type Column = { id: number; title: string; cards: Card[] };
+
 export default defineComponent({
   components: {
     KanbanColumn,
   },
   setup() {
-    const columns = ref([
+    const columns = ref<Column[]>([
       { id: 1, title: "To Do", cards: [] },
       { id: 2, title: "In Progress", cards: [] },
       { id: 3, title: "Done", cards: [] },

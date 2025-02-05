@@ -18,7 +18,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 .kanban-card {
   border: 2px solid white !important;
 }

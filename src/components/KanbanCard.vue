@@ -30,9 +30,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, PropType } from "vue";
+import { defineComponent, ref } from "vue";
+// Import PropType using type-only import
+import type { PropType } from "vue";
 
-// Define the type for the 'card' prop
+// Define types for card
 type Card = {
   id: number;
   title: string;
