@@ -13,6 +13,7 @@
     </v-btn>
   </v-list-item>
 
+  <!-- Dialog for editing a card -->
   <v-dialog v-model="editDialog" max-width="500px">
     <v-card>
       <v-card-title>Rediger kort</v-card-title>
@@ -29,12 +30,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, PropType } from "vue";
+
+// Define the type for the 'card' prop
+type Card = {
+  id: number;
+  title: string;
+  description: string;
+};
 
 export default defineComponent({
   props: {
-    card: Object,
-    required: true,
+    card: {
+      type: Object as PropType<Card>,
+      required: true,
+    },
   },
   setup(props, { emit }) {
     const editDialog = ref(false);

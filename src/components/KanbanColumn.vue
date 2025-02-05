@@ -16,6 +16,7 @@
     </v-card>
   </v-col>
 
+  <!-- Dialog for at tilføje et nyt kort -->
   <v-dialog v-model="dialog" max-width="500px">
     <v-card>
       <v-card-title>Tilføj et nyt kort</v-card-title>
@@ -32,14 +33,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, PropType } from "vue";
 import KanbanCard from "./KanbanCard.vue";
+
+// Define the structure of the column prop.
+type Card = { id: number; title: string; description: string };
+type Column = { id: number; title: string; cards: Card[] };
 
 export default defineComponent({
   components: { KanbanCard },
   props: {
-    column: Object,
-    required: true,
+    column: {
+      type: Object as PropType<Column>,
+      required: true,
+    },
   },
   setup(props, { emit }) {
     const dialog = ref(false);
