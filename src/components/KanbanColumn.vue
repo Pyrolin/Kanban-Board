@@ -16,7 +16,6 @@
     </v-card>
   </v-col>
 
-  <!-- Dialog for at tilføje et nyt kort -->
   <v-dialog v-model="dialog" max-width="500px">
     <v-card>
       <v-card-title>Tilføj et nyt kort</v-card-title>
