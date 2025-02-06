@@ -34,11 +34,10 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-// Import PropType using type-only import
 import type { PropType } from "vue";
 import KanbanCard from "./KanbanCard.vue";
 
-// Define types for card and column
+// Define typer for card og column
 type Card = { id: number; title: string; description: string };
 type Column = { id: number; title: string; cards: Card[] };
 

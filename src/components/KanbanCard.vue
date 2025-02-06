@@ -13,7 +13,7 @@
     </v-btn>
   </v-list-item>
 
-  <!-- Dialog for editing a card -->
+  <!-- Dialog for editing af card -->
   <v-dialog v-model="editDialog" max-width="500px">
     <v-card>
       <v-card-title>Rediger kort</v-card-title>
@@ -31,10 +31,9 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-// Import PropType using type-only import
 import type { PropType } from "vue";
 
-// Define types for card
+// Define typer for card
 type Card = {
   id: number;
   title: string;
