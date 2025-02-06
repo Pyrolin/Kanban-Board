@@ -58,7 +58,7 @@ export default defineComponent({
     // emit event med opdateret kort info.
     const updateCard = () => {
       emit("edit", props.card.id, editedCard.value.title, editedCard.value.description);
-      editDialog.value = false;
+      editDialog.value = false;  // close dialog efter save
     };
 
     return { editDialog, editedCard, openEditDialog, updateCard };
