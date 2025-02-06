@@ -16,7 +16,7 @@
     </v-card>
   </v-col>
 
-  <!-- Dialog for at tilføje et nyt kort -->
+  <!-- dialog for at tilføje et nyt kort -->
   <v-dialog v-model="dialog" max-width="500px">
     <v-card>
       <v-card-title>Tilføj et nyt kort</v-card-title>
@@ -37,7 +37,7 @@ import { defineComponent, ref } from "vue";
 import type { PropType } from "vue";
 import KanbanCard from "./KanbanCard.vue";
 
-// Define typer for card og column
+// type definitions
 type Card = { id: number; title: string; description: string };
 type Column = { id: number; title: string; cards: Card[] };
 
@@ -57,6 +57,7 @@ export default defineComponent({
       dialog.value = true;
     };
 
+    // emit event til parent som adder nyt kort
     const addCard = () => {
       if (newCard.value.title && newCard.value.description) {
         emit("card-added", props.column.id, newCard.value.title, newCard.value.description);
@@ -64,11 +65,11 @@ export default defineComponent({
         dialog.value = false;
       }
     };
-
+    // emit event til at opdater kort
     const editCard = (cardId: number, title: string, description: string) => {
       emit("card-updated", props.column.id, cardId, title, description);
     };
-
+    // emit event til at slette kort
     const deleteCard = (cardId: number) => {
       emit("card-deleted", props.column.id, cardId);
     };

@@ -17,7 +17,7 @@
 import { defineComponent, ref } from "vue";
 import KanbanColumn from "./KanbanColumn.vue";
 
-// Define types
+// define types
 type Card = { id: number; title: string; description: string };
 type Column = { id: number; title: string; cards: Card[] };
 
@@ -31,14 +31,14 @@ export default defineComponent({
       { id: 2, title: "In Progress", cards: [] },
       { id: 3, title: "Done", cards: [] },
     ]);
-
+    // tilføj et nyt kort til column
     const addCard = (columnId: number, title: string, description: string) => {
       const column = columns.value.find((col) => col.id === columnId);
       if (column) {
         column.cards.push({ id: Date.now(), title, description });
       }
     };
-
+    // update et eksisterende kort i givet column
     const updateCard = (columnId: number, cardId: number, title: string, description: string) => {
       const column = columns.value.find((col) => col.id === columnId);
       if (column) {
@@ -49,7 +49,7 @@ export default defineComponent({
         }
       }
     };
-
+    // fjern kort fra givet column
     const deleteCard = (columnId: number, cardId: number) => {
       const column = columns.value.find((col) => col.id === columnId);
       if (column) {

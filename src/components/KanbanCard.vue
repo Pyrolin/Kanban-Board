@@ -13,7 +13,7 @@
     </v-btn>
   </v-list-item>
 
-  <!-- Dialog for editing af card -->
+  <!-- dialog for editing af card -->
   <v-dialog v-model="editDialog" max-width="500px">
     <v-card>
       <v-card-title>Rediger kort</v-card-title>
@@ -33,7 +33,7 @@
 import { defineComponent, ref } from "vue";
 import type { PropType } from "vue";
 
-// Define typer for card
+// define typer for card
 type Card = {
   id: number;
   title: string;
@@ -55,7 +55,7 @@ export default defineComponent({
       editedCard.value = { ...props.card };
       editDialog.value = true;
     };
-
+    // emit event med opdateret kort info.
     const updateCard = () => {
       emit("edit", props.card.id, editedCard.value.title, editedCard.value.description);
       editDialog.value = false;
